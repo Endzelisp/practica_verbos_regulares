@@ -1,5 +1,15 @@
-import {regularVerbs} from './constants.js';
+import { regularVerbs } from './constants.js';
 
 const currentVerbEl = document.querySelector('#current-verb');
 
-currentVerbEl.textContent = regularVerbs[0];
+/**
+ * return a random number between zero and a max number
+ * not inclusive
+ * @param {[]} arr 
+ * @returns {string}
+ */
+export function getRandomNum(maxNumber) {
+  return Math.floor(Math.random() * maxNumber);
+}
+
+currentVerbEl.textContent = regularVerbs[getRandomNum(regularVerbs.length)];
