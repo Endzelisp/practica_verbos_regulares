@@ -44,7 +44,6 @@ function updateVerb() {
 
 updateVerb()
 
-
 currentVerbEl.textContent = currentVerb;
 
 verifyBtn.addEventListener('click', () => {
