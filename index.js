@@ -54,7 +54,7 @@ updateVerb()
 render()
 
 verifyBtn.addEventListener('click', () => {
-  const userReply = userInputReplyEl.value;
+  const userReply = userInputReplyEl.value.toLowerCase();
   let validReply = false;
 
   if (userReply !== '') {
