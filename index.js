@@ -2,8 +2,10 @@ import { regularVerbs, verbsEndings, pronouns } from './constants.js';
 
 const currentVerbEl = document.querySelector('#current-verb');
 const currentPronounEl = document.querySelector('#current-pronoun');
-const verifyBtn = document.querySelector('#button-verify')
-const nextBtn = document.querySelector('#button-next')
+const userInputReplyEl = document.querySelector('#user-reply');
+const replyIconResponse = document.querySelector('#icon-response');
+const verifyBtn = document.querySelector('#button-verify');
+const nextBtn = document.querySelector('#button-next');
 
 /**
  * return a random number between zero and a max number
@@ -17,7 +19,7 @@ export function getRandomNum(maxNumber) {
 
 let currentVerb, verbWithoutEnding, infinitiveVerbEnding, arrayOfVerbEndinds;
 let selectedIndex;
-let pronoun, correntVerbEnding, conjugation;
+let pronoun, correntVerbEnding, validConjugation;
 
 
 function updateVerb() {
@@ -40,7 +42,7 @@ function updateVerb() {
 
   pronoun = pronouns[selectedIndex];
   correntVerbEnding = arrayOfVerbEndinds[selectedIndex];
-  conjugation = verbWithoutEnding + correntVerbEnding;
+  validConjugation = verbWithoutEnding + correntVerbEnding;
 }
 
 function render() {
@@ -52,10 +54,28 @@ updateVerb()
 render()
 
 verifyBtn.addEventListener('click', () => {
-  console.log('verify button clicked')
+  const userReply = userInputReplyEl.value;
+  let validReply = false;
+
+  if (userReply !== '') {
+    validReply = userReply === validConjugation;
+  }
+
+  if (validReply) {
+    userInputReplyEl.dataset.valid = 'true'
+    replyIconResponse.src = './assets/valid.png'
+  } else {
+    userInputReplyEl.dataset.valid = 'false'
+    replyIconResponse.src = './assets/invalid.png'
+  }
+  
 })
 
 nextBtn.addEventListener('click', () => {
+  userInputReplyEl.value = '';
+  userInputReplyEl.dataset.valid = '';
+  replyIconResponse.src = '';
+  userInputReplyEl.focus()
   updateVerb()
   render()
 })
