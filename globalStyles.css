@@ -1,0 +1,12 @@
+body {
+  --clr-text-primary: hsl(0, 0%, 16%); 
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--clr-text-primary);
+}
+
+input, button {
+  color: inherit;
+}
