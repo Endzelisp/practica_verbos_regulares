@@ -8,4 +8,60 @@
 .title-wrapper > h1 {
   text-align: center;
   font-size: clamp(1.5rem, 2vw + 1rem, 2.25rem);
+  margin-bottom: 32px;
+}
+
+.current-verb {
+  text-align: center;
+  font-size: 2.25rem;
+  padding: 24px 0 64px;
+}
+
+.center-flex {
+  display: flex;
+  justify-content: center;
+}
+
+.user-input-wrapper {
+  position: relative;
+  gap: 1rem;
+  --font-sz: 1.125rem;
+}
+
+.user-input-wrapper p#current-pronoun {
+  font-size: var(--font-sz);
+}
+
+.user-input-wrapper input#user-reply {
+  width: 120px;
+  font-size: var(--font-sz);
+  text-align: center;
+  border: none;
+  border-bottom: 2px solid hsl(0, 0%, 50%);
+  border-radius: 3px;
+}
+
+.user-input-wrapper input#user-reply[data-valid="true"] {
+  background-color: hsla(120, 100%, 69%, 0.5);
+}
+
+.user-input-wrapper input#user-reply[data-valid="false"] {
+  background-color: hsla(0, 100%, 66%, 0.5);
+}
+
+.user-input-wrapper input#user-reply:focus {
+  background: hsl(0, 0%, 100%);
+  background: linear-gradient(180deg, hsl(0, 0%, 100%) 66%, hsla(0, 0%, 60%, 0.7) 100%);
+  border-bottom: 2px solid hsl(0, 1%, 30%);
+  outline: none;
+}
+
+.user-input-wrapper #icon-response {
+  height: 32px;
+  width: auto;
+}
+
+.user-actions-wrapper {
+  gap: 16px;
+  padding-block-start: 24px;
 }
