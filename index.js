@@ -1,6 +1,7 @@
 import { regularVerbs, verbsEndings, pronouns } from './constants.js';
 
 const currentVerbEl = document.querySelector('#current-verb');
+const currentPronounEl = document.querySelector('#current-pronoun');
 const verifyBtn = document.querySelector('#button-verify')
 const nextBtn = document.querySelector('#button-next')
 
@@ -42,9 +43,13 @@ function updateVerb() {
   conjugation = verbWithoutEnding + correntVerbEnding;
 }
 
-updateVerb()
+function render() {
+  currentVerbEl.textContent = currentVerb;
+  currentPronounEl.textContent = pronoun;
+}
 
-currentVerbEl.textContent = currentVerb;
+updateVerb()
+render()
 
 verifyBtn.addEventListener('click', () => {
   console.log('verify button clicked')
@@ -52,5 +57,5 @@ verifyBtn.addEventListener('click', () => {
 
 nextBtn.addEventListener('click', () => {
   updateVerb()
-  currentVerbEl.textContent = currentVerb;
+  render()
 })
