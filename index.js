@@ -10,8 +10,8 @@ const nextBtn = document.querySelector('#button-next');
 /**
  * return a random number between zero and a max number
  * not inclusive
- * @param {[]} arr 
- * @returns {string}
+ * @param {number} maxNumber 
+ * @returns {number}
  */
 export function getRandomNum(maxNumber) {
   return Math.floor(Math.random() * maxNumber);
